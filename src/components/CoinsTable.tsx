@@ -48,7 +48,7 @@ export const CoinsTable = ({ coins, pageSize = 25 }: CoinsTableProps) => {
 
   const generateSparkline = (coin: Coin) => {
     if (coin.sparkline_in_7d?.price) {
-      return coin.sparkline_in_7d.price.map((p, i) => ({
+      return coin.sparkline_in_7d.price.map((p:number, i:number) => ({
         time: i,
         value: p,
       }));
@@ -225,7 +225,7 @@ export const CoinsTable = ({ coins, pageSize = 25 }: CoinsTableProps) => {
       <style>{`
         .table-row-hover:hover {
           background-color: #f0fdf4 !important;
-          box-shadow: 0 2px 10px rgba(22, 163, 74, 0.25);
+          box-shadow: 0 2px 10px rgba(125, 218, 160, 0.25);
         }
       `}</style>
     </>

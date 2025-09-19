@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Row, Col, Table, Modal, Card, Form, InputGroup } from "react-bootstrap";
 import { FaFire, FaArrowUp, FaArrowDown, FaSearch } from "react-icons/fa";
-
+import { CoinsTable } from "./CoinsTable";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -9,6 +9,8 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+
+
 
 interface HighlightsSectionProps {
   trendingCoins: any[];
@@ -298,52 +300,30 @@ export const HighlightsSection = ({
 
 
         <Col md={6} className="text-end">
-          <InputGroup className="w-75 ms-auto">
-            <InputGroup.Text>
-              <FaSearch />
-            </InputGroup.Text>
-            <Form.Control
-              type="text"
-              placeholder="Search coins..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </InputGroup>
-        </Col>
+  <InputGroup className="w-75 ms-auto">
+    <Form.Control
+      type="text"
+      placeholder="Search coins..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+      className="rounded-pill shadow-sm"
+    />
+    <InputGroup.Text className="bg-white border-0">
+      <FaSearch className="text-muted" />
+    </InputGroup.Text>
+  </InputGroup>
+</Col>
       </Row>
 
       {/* === All View (Existing Table) === */}
-      {activeView === "all" && (
-        <div className="p-3 bg-white rounded-4 shadow-sm mb-4">
-        
-           <Table hover responsive>
-            <thead className="table-success">
-              
-            </thead>
-            <tbody>
-              {modalData.map((coin, idx) => (
-                <tr key={coin.id || idx}>
-                  <td>{coin.market_cap_rank}</td>
-                  <td>{coin.name}</td>
-                  <td className="text-uppercase">{coin.symbol}</td>
-                  <td>${coin.current_price?.toLocaleString()}</td>
-                  <td
-                    className={
-                      coin.price_change_percentage_24h >= 0
-                        ? "text-success"
-                        : "text-danger"
-                    }
-                  >
-                    {coin.price_change_percentage_24h?.toFixed(2) ?? "0"}%
-                  </td>
-                  <td>${coin.market_cap?.toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
-      )}
+    
 
+{activeView === "all" && (
+  <div className="mt-3">
+    </div>
+)}
+
+  
       {/* === Highlights View (3 Big Cards with 20 rows) === */}
       {activeView === "highlights" && (
         <Row className="g-3 mb-4">
@@ -520,6 +500,48 @@ export const HighlightsSection = ({
       )}
 
      
-    </>
+ 
+{/* === Modal for View More === */}
+<Modal show={showModal} onHide={() => setShowModal(false)} size="lg" centered>
+  <Modal.Header closeButton>
+    <Modal.Title>{modalTitle}</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Table hover responsive>
+      <thead className="table-success">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>24h %</th>
+          <th>Market Cap</th>
+        </tr>
+      </thead>
+      <tbody>
+        {modalData.map((coin, idx) => (
+          <tr key={coin.id || idx}>
+            <td>{coin.market_cap_rank ?? idx + 1}</td>
+            <td>{coin.name}</td>
+            <td className="text-uppercase">{coin.symbol}</td>
+            <td>${coin.current_price?.toLocaleString()}</td>
+            <td
+              className={
+                coin.price_change_percentage_24h >= 0
+                  ? "text-success fw-semibold"
+                  : "text-danger fw-semibold"
+              }
+            >
+              {coin.price_change_percentage_24h?.toFixed(2) ?? "0"}%
+            </td>
+            <td>${coin.market_cap?.toLocaleString()}</td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  </Modal.Body>
+</Modal>
+        </>
   );
+
 };

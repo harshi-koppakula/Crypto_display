@@ -52,7 +52,7 @@ export class CoinGeckoRepository {
           per_page: perPage,
           page,
           price_change_percentage: '24h',
-          sparkline: false,
+          sparkline: true, // ✅ also fetch sparkline here if you want list charts
         },
       });
       return response.data;
@@ -71,7 +71,7 @@ export class CoinGeckoRepository {
           market_data: true,
           community_data: false,
           developer_data: false,
-          sparkline: false,
+          sparkline: true, // ✅ FIXED: enabled sparkline
         },
       });
       return response.data;

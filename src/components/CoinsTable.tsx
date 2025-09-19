@@ -31,6 +31,8 @@ export const CoinsTable = ({ coins, pageSize = 25 }: CoinsTableProps) => {
       setSortKey(key);
       setSortOrder("desc");
     }
+
+    
   };
 
   const renderSortArrow = (key: SortKey) => {

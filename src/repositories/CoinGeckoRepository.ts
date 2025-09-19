@@ -76,6 +76,7 @@ export class CoinGeckoRepository {
       });
       return response.data;
     } catch (error) {
+      
       console.error('Error fetching coin details:', error);
       throw new Error('Failed to fetch coin details');
     }

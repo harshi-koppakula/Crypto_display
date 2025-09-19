@@ -1,0 +1,259 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Custom dashboard layout styles */
+.dashboard-header {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stats-cards {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+  min-width: 220px;
+  text-align: left;
+}
+
+.stat-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
+.stat-card p {
+  margin: 0.25rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e6fffa; /* pale green */
+}
+
+/* Highlights area */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight-card {
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 160px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+
+.highlight-card .title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.coin-row {
+  display:flex;
+  justify-content:space-between;
+  padding:0.35rem 0;
+  border-bottom:1px dashed rgba(255,255,255,0.03);
+}
+
+.coin-row:last-child { border-bottom: none; }
+
+/* Table tweaks */
+.table thead th {
+  border-bottom: 2px solid rgba(255,255,255,0.03);
+  font-weight: 700;
+}
+.table tbody td {
+  vertical-align: middle;
+  padding: 0.75rem 0.5rem;
+}
+
+/* positive/negative badges */
+.badge-up {
+  color: #065f46;
+  background: #a7f3d0;
+  font-weight: 700;
+}
+.badge-down {
+  color: #7f1d1d;
+  background: #fecaca;
+  font-weight: 700;
+}
+
+/* small sparkline placeholder */
+.sparkline {
+  height: 36px;
+  width: 120px;
+  display:inline-block;
+  background-image: linear-gradient(90deg, rgba(16,185,129,0.15), rgba(16,185,129,0.04));
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-cards { width: 100%; justify-content: space-between; }
+}
+/* Modern card look */
+.highlight-card, .coins-table {
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: none;
+}
+
+/* Section headers */
+.highlight-card .card-header {
+  font-weight: 600;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* Gain/Loss colors */
+.badge-up {
+  color: #16a34a;  /* green-600 */
+  font-weight: 600;
+}
+
+.badge-down {
+  color: #dc2626;  /* red-600 */
+  font-weight: 600;
+}
+
+/* Table alignment */
+.coins-table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #6b7280; /* gray-500 */
+  font-weight: 600;
+}
+.coins-table td {
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+/* Header stat cards */
+.stat-card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: #fff;
+  padding: 1rem 1.25rem;
+  text-align: center;
+}
+
+.stat-card h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280; /* gray-500 */
+  margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111827; /* gray-900 */
+}
+
+.stat-card small {
+  display: block;
+  color: #9ca3af; /* gray-400 */
+  font-size: 0.75rem;
+}
+.table thead th {
+  cursor: pointer;
+}
+
+.table-success th {
+  background-color: #e6f4ea !important;
+  color: #065f46 !important;
+}
+
+.highlight-card {
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.stat-box {
+  border-radius: 1rem;
+  background: #fff;
+}
+
+h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.app-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.04);
+  min-height: 100vh;
+}
+
+.header-placeholder,
+.highlights-placeholder,
+.filters-placeholder,
+.coins-table-placeholder {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #1f2937;
+}

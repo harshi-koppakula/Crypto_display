@@ -1,0 +1,28 @@
+/* Stats Cards */
+.stat-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Crypto Table */
+.crypto-table {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.crypto-table th {
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.crypto-table td {
+  font-size: 0.95rem;
+}
+
+.crypto-table img {
+  border-radius: 50%;
+}

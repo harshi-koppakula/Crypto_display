@@ -199,6 +199,9 @@ export const CoinDetailsModal = ({ coin, show, onHide }: CoinDetailsModalProps) 
                 />
               </div>
             )}
+
+
+
           </>
         )}
       </Modal.Body>
